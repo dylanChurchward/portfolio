@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" href="https://bootswatch.com/5/morph/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="https://bootswatch.com/5/lux/bootstrap.min.css">
+    <link rel="stylesheet" href="myStyle.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="myScript.js"></script>
+
+
+</head>
+
+<body>
+
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid container">
+            <a class="navbar-brand" href="#">Dylan Churchward</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor03"
+                aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarColor03">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#aboutMe">About Me</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+                <a href="https://github.com/dylanChurchward"><button id="githubBtn" class="contactBtn"></button></a>
+                <a id="linkedinLink" href="https://www.linkedin.com/in/dylan-churchward-09b8a1228/"><button
+                        id="linkedinBtn" class="contactBtn"></button></a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container" id="content">
+        <div class="card border-primary mb-3" id="aboutMe">
+            <!-- About me card-->
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6 order-2 order-md-1">
+                        <h1 class="card-title text-center mx-auto d-block">Hi, I'm Dylan</h1>
+                        <p id="aboutMeText" class="card-text text-center mx-auto d-block">I am senior computer science
+                            student
+                            at the University of Washington and will be graduating in December of 2022. I spent
+                            my early career in aerospace manufacturing and as an optical lab tech, but returned to
+                            school in search of a greater challenge. I have since fallen in love with the analytical
+                            and creative process of designing and writing software. The nature of this field
+                            perfectly suits my unending inclination to ask the question "why?". There is always more to
+                            learn!
+                        </p>
+                    </div>
+                    <div class="col-md-6 order-1 order-md-2">
+                        <img src="images/IMG_1457.jpg" class="mx-auto d-block" id="myImg">
+                    </div>
+                </div>
+            </div>
+        </div> <!-- End of About me card-->
+
+        <div class="card border-primary mb-3" id="projects">
+            <div class="card-body">
+                <h4 class="card-title">My Projects</h4>
+                <hr />
+                <div class="row">
+                    <div class="col-md-4 order-2 order-md-1">
+                        <h1 class="card-title text-center mx-auto d-block">Trivia Maze</h1>
+                        <div class="accordion" id="accordionExample">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingOne">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        Description
+                                    </button>
+                                </h2>
+                                <div id="collapseOne" class="accordion-collapse collapse show"
+                                    aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        In this game, a user traverses the maze by identifying Pokémon based on their
+                                        silhouettes in order to open doors and gain access to additional rooms. If the
+                                        user
+                                        guesses incorrectly, the associated door becomes permanently locked.
+                                        <br>
+                                        <br>
+                                        I worked with an exceptional team to complete this project for a class.
+                                        It was my first opportunity to use agile development methodology (user stories,
+                                        sprints),
+                                        project management software, code versioning with a team, and a relational
+                                        database.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingTwo">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        The Technology
+                                    </button>
+                                </h2>
+                                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                                    data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <ul>
+                                            <li>Written in Java</li>
+                                            <li>Swing framework front-end</li>
+                                            <li>Design patterns: factory and model, view, controller</li>
+                                            <li>MySQL local database</li>
+                                            <li>Embodies the four pillars of object-oriented programming</li>
+                                            <li><a href="https://github.com/dylanChurchward/TriviaMaze" target="_blank"
+                                                    rel="noopener noreferrer">Click here to check it out on Github</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8 order-1 order-md-2">
+                        <img src="https://i.ibb.co/W6SZfhZ/Trivia-Maze.gif" class="mx-auto d-block projectImg">
+                    </div>
+                </div>
+
+                <br>
+                <hr />
+                <br>
+
+                <div class="row">
+                    <div class="col-md-7 order-2 order-md-2">
+                        <h1 class="card-title text-center mx-auto d-block">Creature Clicker</h1>
+                        <div class="accordion" id="accordionExample">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingOne">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        Description
+                                    </button>
+                                </h2>
+                                <div id="collapseOne" class="accordion-collapse collapse show"
+                                    aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        In this game, a user tries to defeat monsters by clicking them. Each click is
+                                        counted
+                                        as an "attack" against the monster, and it loses health points accordingly. In
+                                        order to win the player must defeat each monster before the timer (white bar)
+                                        runs out.
+                                        <br>
+                                        <br>
+                                        This is a personal project that I completed after taking a few Java courses. I
+                                        wanted to use
+                                        my newly acquired knowledge about object-oriented programming to create
+                                        something on a larger
+                                        scale than the projects I had worked on in class. At the time, this was the
+                                        largest
+                                        and most complicated project that I had worked on, and I was very proud of the
+                                        result (especially
+                                        my use of polymorphism and inheritance). A friend created the art for the
+                                        project, which I animated
+                                        using timers.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingTwo">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        The Technology
+                                    </button>
+                                </h2>
+                                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                                    data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <ul>
+                                            <li>Written in Java</li>
+                                            <li>Swing framework front-end</li>
+                                            <li>Java timers to animate art in real time</li>
+                                            <li>Embodies the four pillars of object-oriented programming</li>
+                                            <li><a href="https://github.com/dylanChurchward/Creature-Clicker"
+                                                    target="_blank" rel="noopener noreferrer">Click here to check it out
+                                                    on Github</a></li>
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5 order-1 order-md-1">
+                        <img src="https://i.ibb.co/gynJfcJ/Animation.gif" class="mx-auto d-block projectImg">
+                    </div>
+                </div>
+
+                <br>
+                <hr />
+                <br>
+
+                <div class="row">
+                    <div class="col-md-5 order-2 order-md-1">
+                        <h1 class="card-title text-center mx-auto d-block">Game Of Life</h1>
+                        <div class="accordion" id="accordionExample">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingOne">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        Description
+                                    </button>
+                                </h2>
+                                <div id="collapseOne" class="accordion-collapse collapse show"
+                                    aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        This program is a representation of Conway's Game of Life.
+                                        It is aptly described in this excerpt taken from wikipedia: "It is a zero-player
+                                        game,
+                                        meaning that its evolution is determined by its initial state, requiring no
+                                        further input.
+                                        One interacts with the Game of Life by creating an initial configuration and
+                                        observing how it
+                                        evolves. It is Turing complete and can simulate a universal constructor or any
+                                        other Turing machine."
+                                        The rules are simple:
+                                        <ul>
+                                            <li>Any live cell with two or three live neighbours survives.</li>
+                                            <li>Any dead cell with three live neighbours becomes a live cell.</li>
+                                            <li>All other live cells die in the next generation. Similarly, all other
+                                                dead cells stay dead.</li>
+                                        </ul>
+                                        I've been fascinated with Conway's Game of Life since reading about it years
+                                        ago.
+                                        After taking some programming classes I realized that I could make the game
+                                        myself,
+                                        and couldn't help myself but code it up over a weekend.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingTwo">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        The Technology
+                                    </button>
+                                </h2>
+                                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                                    data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <ul>
+                                            <li>Written in Java</li>
+                                            <li>Swing framework front-end</li>
+                                            <li>Uses timer to animates cells in real time</li>
+                                            <li>Embodies the four pillars of object oriented design</li>
+                                            <li><a href="https://github.com/dylanChurchward/cellular-automata"
+                                                    target="_blank" rel="noopener noreferrer">Click here to check it out
+                                                    on Github</a></li>
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-7 order-1 order-md-2">
+                        <img id="celluarImg" src="https://i.ibb.co/BK5C55m/cellular-automata.gif"
+                            alt="cellular-automata" border="0">
+                    </div>
+                </div>
+
+
+            </div><!-- End of my projects card-->
+        </div>
+
+        <div class="card border-primary mb-3" id="contact">
+            <div class="card-body d-flex mx-auto">
+                <div class="container">
+                    <a href="https://github.com/dylanChurchward"><button id="githubBtn2" class="contactBtn"></button></a>
+                <a id="linkedinLink" href="https://www.linkedin.com/in/dylan-churchward-09b8a1228/"><button
+                        id="linkedinBtn" class="contactBtn"></button></a>
+                </div>
+
+            </div>
+        </div>
+
+    </div> <!-- End of main content container -->
+
+</body>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+
+</html>

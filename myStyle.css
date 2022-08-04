@@ -1,0 +1,81 @@
+.contactBtn {
+    background-repeat: no-repeat;
+    background-color: inherit;
+    width: 32px;
+    height: 32px;
+    border: none;
+    margin: 5px;
+}
+
+.contactBtn:hover {
+    cursor: pointer;
+}
+
+#githubBtn {
+    background-image: url( 'images/GitHub-Mark-light-32px.png' );
+}
+
+#githubBtn2 {
+    background-image: url( 'images/GitHub-Mark-32px.png' );
+}
+
+#linkedinBtn {
+    background-image: url( 'images/LI-In-Bug.png' );
+    background-size: 37px;
+}
+
+#content {
+    padding: 0;
+}
+
+body {
+    background-color: white; 
+}
+
+.card {
+    margin-top: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+img {
+    width: 75%;
+    height: auto;
+    border: solid 1px rgb(28, 28, 28);
+}
+
+h1, p {
+    margin: 5%;
+}
+
+p {
+    margin-top: 4%;
+    font-size: 130%;
+}
+
+hr {
+    border: 1px solid rgb(0, 0, 0);
+}
+
+.projectImg {
+    width: 100%;
+    height: auto;
+}
+
+#celluarImg {
+    margin-right: 0;
+    width: 100%;
+    height: auto;
+}
+
+#buttons {
+    display: block;
+}
+
+
+
+
+
+
+
+
