@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>RESTfull</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="myStyle.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="myScript.js"></script>
+
+</head>
+
+<body>
+    
+    <div class="container"> <!-- Outermost container -->
+
+        <div class="col"> <!-- Main column -->
+
+            <div class="row"> <!-- First row, contains temperature conversion card -->
+                <div id="topCard" class="col-6 mx-auto card border-primary mb-3" style="max-width: 40rem;">
+                    <div class="card-header text-center">Convert Temperature</div>
+                    <div class="card-body row">
+                        <div class="col-5 d-flex justify-content-end">
+                            <form>
+                                <label for="celcius" class="d-flex justify-content-center">Celcius</label>
+                                <input type="text" id="celcius" placeholder="0">
+                            </form>
+                        </div> <!-- End of left hand column -->
+
+                        <div class="col-2 d-flex justify-content-center">
+                            <h2>=</h2>
+                        </div> <!-- End of center column-->
+
+                        <div class="col-5 d-flex justify-content-start">
+                            <form>
+                                <label for="fahrenheit" class="d-flex justify-content-center">Fahrenheit</label>
+                                <input type="text" id="fahrenheit" placeholder="32">
+                            </form>
+                        </div> <!-- End of right hand column -->
+                    </div> <!-- End of main inner row -->
+                </div>
+            </div> <!-- End of first card-->
+
+            <div class="row"> <!-- Second row, contains distance conversion card -->
+                <div class="col-6 mx-auto card border-primary mb-3" style="max-width: 40rem;">
+                    <div class="card-header text-center">Convert Distance</div>
+                    <div class="card-body row">
+                        <div class="col-5 d-flex justify-content-end">
+                            <form>
+                                <label for="centimeters" class="d-flex justify-content-center">Centimeters</label>
+                                <input type="text" id="centimeters" placeholder="0">
+                            </form>
+                        </div> <!-- End of left hand column -->
+
+                        <div class="col-2 d-flex justify-content-center">
+                            <h2>=</h2>
+                        </div> <!-- End of center column-->
+
+                        <div class="col-5 d-flex justify-content-start">
+                            <form>
+                                <label for="inches" class="d-flex justify-content-center">Inches</label>
+                                <input type="text" id="inches" placeholder="0">
+                            </form>
+                        </div> <!-- End of right hand column -->
+                    </div> <!-- End of main inner row -->
+                  </div>
+            </div> <!-- End of second row-->
+
+            <div class="row"> <!-- Third row, contains weight conversion card -->
+                <div class="col-6 mx-auto card border-primary mb-3" style="max-width: 40rem;">
+                    <div class="card-header text-center">Convert Weight</div>
+                    <div class="card-body row">
+                        <div class="col-5 d-flex justify-content-end">
+                            <form>
+                                <label for="pounds" class="d-flex justify-content-center">Pounds</label>
+                                <input type="text" id="pounds" placeholder="0">
+                            </form>
+                        </div> <!-- End of left hand column -->
+
+                        <div class="col-2 d-flex justify-content-center">
+                            <h2>=</h2>
+                        </div> <!-- End of center column-->
+
+                        <div class="col-5 d-flex justify-content-start">
+                            <form>
+                                <label for="kilograms" class="d-flex justify-content-center">Kilograms</label>
+                                <input type="text" id="kilograms" placeholder="0">
+                            </form>
+                        </div> <!-- End of right hand column -->
+                    </div> <!-- End of main inner row -->
+                  </div>
+            </div> <!-- End of third row-->
+
+        </div> <!-- End of main column -->
+
+    </div> <!-- End of outermost container -->
+
+
+</body>
+
+<link rel="stylesheet" href="https://bootswatch.com/5/solar/bootstrap.min.css">
+
+
+</html>

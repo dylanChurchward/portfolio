@@ -13,6 +13,7 @@ function windowChange() {
         $(".navbar-brand").css({"font-size": "125%"})
         $(".navbar").css({"padding-top": "1%", "padding-bottom": "1%"});
         $("h1").css({"margin-top": "10%"})
+        // $("#convertImg").css({"width": "100%"})
     } else {
         $("#aboutMeText").css({"width": "80%", "height": "auto"});
         $("p").css({"font-size": ""});
@@ -21,6 +22,7 @@ function windowChange() {
         $(".navbar-brand").css({"font-size": ""})
         $(".navbar").css({"padding-top": "", "padding-bottom": ""});
         $("h1").css({"margin-top": ""})
+        // $("#convertImg").css({"width": "90%"})
     }
 }
 
@@ -33,6 +35,77 @@ $(window).resize(function() {
 $(".nav-link").on("click", function() {
     $(".nav-link").removeClass("active");
     $(this).addClass("active");
+});
+
+
+
+// Javascript for convert values pages
+
+// keyup event listener for celcius text box
+$("#celcius").on("keyup", async function () {
+    const url =`https://server-for-projects.herokuapp.com/celciusToFahrenheit/` + $(this).val();
+    const response = await fetch(url, {
+        method: 'GET'
+    })
+
+    const responseData = await response.json();
+    $("#fahrenheit").val(responseData.result);
+});
+
+// keyup event listener for fahrenheit text box
+$("#fahrenheit").on("keyup", async function () {
+    const url =`https://server-for-projects.herokuapp.com/fahrenheitToCelcius/` + $(this).val();
+    const response = await fetch(url, {
+        method: 'GET'
+    })
+
+    const responseData = await response.json();
+    $("#celcius").val(responseData.result);
+
+});
+
+// keyup event listener for centimeters text box
+$("#centimeters").on("keyup", async function () {
+    const url =`https://server-for-projects.herokuapp.com/centimetersToInches/` + $(this).val();
+    const response = await fetch(url, {
+        method: 'GET'
+    })
+
+    const responseData = await response.json();
+    $("#inches").val(responseData.result);
+});
+
+// keyup event listener for inches text box
+$("#inches").on("keyup", async function () {
+    const url =`https://server-for-projects.herokuapp.com/inchesToCentimeters/` + $(this).val();
+    const response = await fetch(url, {
+        method: 'GET'
+    })
+
+    const responseData = await response.json();
+    $("#centimeters").val(responseData.result);
+});
+
+// keyup event listener for pounds text box
+$("#pounds").on("keyup", async function () {
+    const url =`https://server-for-projects.herokuapp.com/poundsToKilograms/` + $(this).val();
+    const response = await fetch(url, {
+        method: 'GET'
+    })
+
+    const responseData = await response.json();
+    $("#kilograms").val(responseData.result);
+});
+
+// keyup event listener for kilograms text box
+$("#kilograms").on("keyup", async function () {
+    const url =`https://server-for-projects.herokuapp.com/kilogramsToPounds/` + $(this).val();
+    const response = await fetch(url, {
+        method: 'GET'
+    })
+
+    const responseData = await response.json();
+    $("#pounds").val(responseData.result);
 });
 
 

@@ -68,8 +68,28 @@ hr {
     height: auto;
 }
 
+.liveButton {
+    padding: 1%;
+    margin-bottom: 1%;
+}
+
 #buttons {
     display: block;
+}
+
+
+/* Style for convert values page  */
+#topCard {
+    margin-top: 50px;
+}
+
+label {
+    display: block;
+}
+
+h2 {
+    margin-top: 20px;
+    color: white;
 }
 
 
