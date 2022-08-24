@@ -13,7 +13,7 @@ function windowChange() {
         $(".navbar-brand").css({"font-size": "125%"})
         $(".navbar").css({"padding-top": "1%", "padding-bottom": "1%"});
         $("h1").css({"margin-top": "10%"})
-        // $("#convertImg").css({"width": "100%"})
+        $(".liveButton").css({"display": "none"});
     } else {
         $("#aboutMeText").css({"width": "80%", "height": "auto"});
         $("p").css({"font-size": ""});
@@ -22,7 +22,7 @@ function windowChange() {
         $(".navbar-brand").css({"font-size": ""})
         $(".navbar").css({"padding-top": "", "padding-bottom": ""});
         $("h1").css({"margin-top": ""})
-        // $("#convertImg").css({"width": "90%"})
+        $(".liveButton").css({"display": ""});
     }
 }
 
