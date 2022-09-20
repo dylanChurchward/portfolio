@@ -132,9 +132,8 @@ async function putLeaderboard(thePlayer, theScore) {
         method: 'GET'
     });
 
-    const scores = await response.json();
+    const scores = await response.json().then(updateLeaderboard());
 
-    updateLeaderboard();
 }
 
 // Retrieve list of top 8 entries (sorted by score) from the leader board database 
