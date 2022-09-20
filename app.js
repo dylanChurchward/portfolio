@@ -10,14 +10,15 @@ const app = new Application({
     antialias: true
 });
 
+// Map used for the different colors associated with different valued tiles
 const colorMap = new Map();
-colorMap.set(3, 0X4287F5);
-colorMap.set(9, 0X68CC7F);
-colorMap.set(27, 0XDC58B5);
-colorMap.set(81, 0XDCC558);
-colorMap.set(243, 0XEE4040);
-colorMap.set(729, 0XDC8958);
-colorMap.set(2187, 0X3ABDB0);
+colorMap.set(3, 0x4287f5);
+colorMap.set(9, 0x68cc7f);
+colorMap.set(27, 0xDC58B5);
+colorMap.set(81, 0xDCC558);
+colorMap.set(243, 0xEE4040);
+colorMap.set(729, 0xDC8958);
+colorMap.set(2187, 0x3abdb0);
 
 var totalScore;
 var isPlayable;
@@ -38,6 +39,14 @@ var scoreCardCount = 10;
 // used to turn gameplay off while tiles are moving and loading
 var canPlay;
 var gameOver;
+
+var availableSpaces; // collection of empty spaces on the board
+var canMoveLeft; // collections of tiles that can move left, right, up, down
+var canMoveRight;
+var canMoveUp;
+var canMoveDown;
+var scoreBoxes; // collection of score boxes
+var board; // representation of the game board. Contains null or a Tile in each index 
 
 // Dimensions of the game board and the score board areas 
 var boardDimensions = window.innerHeight * 0.85;
@@ -69,7 +78,7 @@ const style = new PIXI.TextStyle({
     fill: '0xF6F3F2',
 });
 
-// Draw the game board
+// Draw the score board
 const scoreBoardRectangle = new Graphics();
 scoreBoardRectangle.beginFill(0xA8A5A5)
     .drawRoundedRect(
@@ -109,22 +118,14 @@ for (let i = 0; i < tileCount; i++) {
     }
 }
 
-var scoreBoxes;
-var board;
-
-// Arrays used to store important information about the state of the board and it's tiles 
-var availableSpaces;
-var canMoveLeft;
-var canMoveRight;
-var canMoveUp;
-var canMoveDown;
-
+// when the game is over, trigger the user information collection 
 function gameFinished() {
     scoreBoxes[0].setButton();
     canPlay = false;
     gameOver = true;
 }
 
+// Add a new entry to the leader board database 
 async function putLeaderboard(thePlayer, theScore) {
     const url = `https://server-for-projects.herokuapp.com/putLeaderboard/` + thePlayer + `/` + theScore;
 
@@ -135,6 +136,7 @@ async function putLeaderboard(thePlayer, theScore) {
     const scores = await response.json();
 }
 
+// Retrieve list of top 8 entries (sorted by score) from the leader board database 
 async function updateLeaderboard() {
     const url = `https://server-for-projects.herokuapp.com/getLeaderboard/10`;
 
@@ -143,7 +145,6 @@ async function updateLeaderboard() {
     });
 
     const scores = await response.json();
-
 
     for (var i = 2; i < scoreBoxes.length; i++) {
 
@@ -306,11 +307,6 @@ function ScoreBox(thePosition, theScore, theText) {
                     alternate = true;
                     myDisplayText.text = myText;
                 }
-
-                // NEED TO FIGURE OUT A WAY TO GET THIS TO STOP, IN THE FUTURE 
-                // if (canPlay == true) {
-                //     clearInterval(myTypingInterval);
-                // }
             }
         })
 
@@ -333,9 +329,9 @@ function ScoreBox(thePosition, theScore, theText) {
 }
 
 // Tiles! 
-// Create a self contained tile objects exist alone, but interacts with its neighbors
-// when the need arises. Contains the logic necessary to be a well behaved tile
-// and interact with other tiles. Additionally, drawing and animating will be handled individually
+// Create a self contained tile objects which exists alone, but interacts with its neighbors
+// Contains the logic necessary to be a well behaved tile
+// and interact with other tiles. Additionally, drawing and animating is handled individually
 // by each tile. 
 class Tile {
     constructor(x, y, value) {
@@ -703,7 +699,7 @@ class Tile {
 }
 
 // Creates randomly placed new tiles every turn, based on available spaces.
-// New tiles always have a value or 3 or 9. Can create 1, 2, or 3 new tiles. 
+// New tiles always have a value or 3 or 9. Can create 1 or 2 new tiles. 
 function randomTiles(count) {
     const initialTileValues = [3, 9];
     assessTheBoard();
@@ -715,7 +711,7 @@ function randomTiles(count) {
         board[newTileCoords.x][newTileCoords.y] = new Tile(newTileCoords.x, newTileCoords.y, value);
         availableSpaces.splice(index, 1);
 
-        if (count < 1 && Math.floor(Math.random() * 4) == 1) {
+        if (count < 1 && Math.floor(Math.random() * 10) == 1) {
             randomTiles(count + 1);
         }
     } else if (isPlayable == false) {
@@ -781,9 +777,11 @@ function slideAll(direction) {
     }
 }
 
+// Adds an event listener to the document, which allows the user
+// to add their name to their score in order to add a new record
+// to the leader board data base. Only accepts alphabetical, backspace,
+// and enter inputs. 
 function listen(remove) {
-
-    
     document.addEventListener('keydown', type);
     function type(e) {
         if ((/[a-zA-Z]/).test(e.key) && e.key.length == 1 && scoreBoxes[0].getTextLength() < 14) {
@@ -799,7 +797,7 @@ function listen(remove) {
 
 // Listens for key events, mainly the arrow keys. Tells the program to slide the tiles 
 // accordingly. Has a delay built in to avoid rapid button pressing. Also, calls for
-// additional random tiles after each move done by the player. 
+// additional random tiles to be created after each move done by the player. 
 document.addEventListener('keydown', function (e) {
     if (canPlay == true
         && gameOver != true
@@ -833,6 +831,8 @@ document.addEventListener('keydown', function (e) {
     }
 })
 
+// Called when the page is loaded, and after a game is finished. Initializes
+// the game state. 
 function startGame() {
     if (scoreBoxes != null) {
         putLeaderboard(scoreBoxes[0].getText(), totalScore);
@@ -877,6 +877,7 @@ function startGame() {
     randomTiles();
 }
 
+// Called when the page is loaded, initializes the game state
 startGame();
 
 
