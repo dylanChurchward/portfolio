@@ -1,7 +1,5 @@
 // dependencies: npm install pixi.js
 
-// TESTING -> GITHUB PAGES NOT REFLECTING CHANGES MADE TO THIS FILE
-
 const Application = PIXI.Application;
 
 // general stage creation with parameters
@@ -13,13 +11,13 @@ const app = new Application({
 });
 
 const colorMap = new Map();
-colorMap.set(3, 0x4287f5);
-colorMap.set(9, 0x68cc7f);
-colorMap.set(27, 0xDC58B5);
-colorMap.set(81, 0xDCC558);
-colorMap.set(243, 0xEE4040);
-colorMap.set(729, 0xDC8958);
-colorMap.set(2187, 0x3abdb0);
+colorMap.set(3, 0X4287F5);
+colorMap.set(9, 0X68CC7F);
+colorMap.set(27, 0XDC58B5);
+colorMap.set(81, 0XDCC558);
+colorMap.set(243, 0XEE4040);
+colorMap.set(729, 0XDC8958);
+colorMap.set(2187, 0X3ABDB0);
 
 var totalScore;
 var isPlayable;
