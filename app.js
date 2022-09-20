@@ -132,7 +132,7 @@ async function putLeaderboard(thePlayer, theScore) {
         method: 'GET'
     });
 
-    const scores = await response.json().then(updateLeaderboard());
+    const scores = await response.json();
 
 }
 
@@ -782,6 +782,8 @@ function slideAll(direction) {
 // to the leader board data base. Only accepts alphabetical, backspace,
 // and enter inputs. 
 function listen(remove) {
+    updateLeaderboard(); // calling this here "wakes up" the database on heroku, 
+    // so it is faster to respond after updating in the near future 
     document.addEventListener('keydown', type);
     function type(e) {
         if ((/[a-zA-Z]/).test(e.key) && e.key.length == 1 && scoreBoxes[0].getTextLength() < 14) {
