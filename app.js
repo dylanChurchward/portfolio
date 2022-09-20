@@ -557,7 +557,7 @@ class Tile {
                     cornerAngle)
                 .endFill();
 
-            if (this.value == 27) {
+            if (this.value == 6561) {
                 gameFinished();
             }
         };
@@ -849,11 +849,10 @@ function startGame() {
 
          // Collect new score boxes 
         scoreBoxes = [];
-
-    for (let i = 0; i < scoreCardCount; i++) {
-        var scoreBox = new ScoreBox(i);
-        scoreBoxes.push(scoreBox);
-    }
+        for (let i = 0; i < scoreCardCount; i++) {
+            var scoreBox = new ScoreBox(i);
+            scoreBoxes.push(scoreBox);
+        }
 
     } else {
         // Collect new score boxes 
@@ -872,20 +871,12 @@ function startGame() {
     gameOver = false;
     totalScore = 0;
 
-    // // Collect new score boxes 
-    // for (let i = 0; i < scoreCardCount; i++) {
-    //     var scoreBox = new ScoreBox(i);
-    //     scoreBoxes.push(scoreBox);
-    // }
-
     scoreBoxes[0].setText("Score: ")
     scoreBoxes[0].setScore(0)
     scoreBoxes[0].setColor(colorMap.get(27))
     scoreBoxes[1].setText("High Scores")
     scoreBoxes[1].setScore()
     scoreBoxes[1].setColor(colorMap.get(2187))
-
-    // updateLeaderboard()
 
     // Create a 2d array of slots for tiles, representing the game board 
     for (var i = 0; i < tileCount; i++) {
