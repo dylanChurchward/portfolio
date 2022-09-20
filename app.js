@@ -109,7 +109,6 @@ for (let i = 0; i < tileCount; i++) {
     }
 }
 
-
 var scoreBoxes;
 var board;
 
@@ -119,7 +118,6 @@ var canMoveLeft;
 var canMoveRight;
 var canMoveUp;
 var canMoveDown;
-
 
 function gameFinished() {
     scoreBoxes[0].setButton();
@@ -146,13 +144,15 @@ async function updateLeaderboard() {
 
     const scores = await response.json();
 
+
     for (var i = 2; i < scoreBoxes.length; i++) {
-        // console.log(scores[i - 2].playername)
-        scoreBoxes[i].setText(scores[i - 2].playername);
-        scoreBoxes[i].setScore(scores[i - 2].score);
+
+        if (scores[i - 2] != null) {
+            scoreBoxes[i].setText(scores[i - 2].playername);
+            scoreBoxes[i].setScore(scores[i - 2].score);
+        }
     }
 }
-
 
 // Iterate through tiles on the board, and create arrays that contain tiles which currently
 // have the ability to move in each direction. 
@@ -878,5 +878,8 @@ function startGame() {
 }
 
 startGame();
+
+
+
 
 
