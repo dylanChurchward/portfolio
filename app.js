@@ -1,5 +1,7 @@
 // dependencies: npm install pixi.js
 
+// TESTING -> GITHUB PAGES NOT REFLECTING CHANGES MADE TO THIS FILE
+
 const Application = PIXI.Application;
 
 // general stage creation with parameters
