@@ -99,3 +99,60 @@ h2 {
 
 
 
+/* *************** STYLE FOR GEO PROJECT ************************  */
+
+#left_column {
+    display: inline-block;
+    border: solid 1px rgb(28, 28, 28);
+    height: 100%;
+    width: 33.333%;
+}
+
+#center_column {
+    display: inline-block;
+    border: solid 1px rgb(28, 28, 28);
+    height: 100%;
+    width: 33.333%;
+}
+
+#right_column {
+    display: inline-block;
+    border: solid 1px rgb(28, 28, 28);
+    height: 100%;
+    width: 33.333%;
+}
+
+.nav {
+    padding: 2%;
+}
+
+
+#map {
+    margin: 10%;
+    width: 80%;
+    height: 50vh;
+}
+
+#map_2 {
+    margin: 10%;
+    width: 80%;
+    height: 50vh;
+}
+
+#map_3 {
+    margin: 10%;
+    width: 80%;
+    height: 50vh;
+}
+
+
+
+
+
+
+
+
+
+
+
+
