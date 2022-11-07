@@ -18,83 +18,129 @@
 
 </head>
 
-<body>
+<body id="geo-body">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Choose a Volcano:</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav me-auto justify-content-center">
+              <li class="nav-item">
+                <a class="nav-link active" href="#">Volcano 1</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Volcano 2</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Volcano 3</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Volcano 4</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
 
 
     <div class="row" id="main_outer_column">
         <!-- start of main outer column -->
 
-        <div class="col-4" id="left_column">
-            <!-- start of left column -->
-
-            <ul class="nav nav-pills">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
-                        aria-haspopup="true" aria-expanded="false">Cinder Cones</a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Cinder Cone 1</a>
-                        <a class="dropdown-item" href="#">Cinder Cone 2</a>
-                        <a class="dropdown-item" href="#">Cinder Cone 3</a>
-                    </div>
-                </li>
-            </ul>
-
-            <p>
-                Chosen Cinder Cone
-            </p>
-            
-            <div id="map"></div>
-
-        </div><!-- end of left column -->
-
-        <div class="col-4" id="center_column">
+        <div class="col-8 offset-2" id="center_column">
             <!-- start of center column -->
 
-            <ul class="nav nav-pills">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
-                        aria-haspopup="true" aria-expanded="false">Composite Volcanoes</a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Composite Volcano 1</a>
-                        <a class="dropdown-item" href="#">Composite Volcano 2</a>
-                        <a class="dropdown-item" href="#">Composite Volcano 3</a>
-                    </div>
-                </li>
-            </ul>
-            
-            <p>
-                Chosen Composite Volcano
-            </p>
+            <h1 class="text-center" id="volcano_name">Chosen Volcano Name</h1>
 
             <div id="map_2"></div>
-            
+
+            <div class="container"> <!-- day selection bar start -->
+                <div class="col-md-12 text-center">
+
+                    <div class="btn-group" role="group" aria-label="Toolbar with button groups">
+                        <div class="btn-group me-2" role="group" aria-label="First group">
+                          <button type="button" class="btn btn-secondary">14</button>
+                          <button type="button" class="btn btn-secondary">13</button>
+                          <button type="button" class="btn btn-secondary">12</button>
+                          <button type="button" class="btn btn-secondary">11</button>
+                          <button type="button" class="btn btn-secondary">10</button>
+                          <button type="button" class="btn btn-secondary">9</button>
+                          <button type="button" class="btn btn-secondary">8</button>
+                          <button type="button" class="btn btn-secondary">7</button>
+                          <button type="button" class="btn btn-secondary">6</button>
+                          <button type="button" class="btn btn-secondary">5</button>
+                          <button type="button" class="btn btn-secondary">4</button>
+                          <button type="button" class="btn btn-secondary">3</button>
+                          <button type="button" class="btn btn-secondary">2</button>
+                          <button type="button" class="btn btn-secondary">1</button>
+                          <button type="button" class="btn btn-secondary">Eruption</button>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- day selection bar end-->
+
+            <div class="container"> <!-- day clicker bar start -->
+                <div class="col-md-12 text-center">
+
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <button type="button" class="btn btn-secondary text-center"><b><</b></button>
+                        <button type="button" class="btn btn-secondary text-center">Start</button>
+                        <button type="button" class="btn btn-secondary text-center"><b>></b></button>
+                    </div>
+                </div>
+            </div> <!-- day clicker bar end -->
+
+            <ul class="nav nav-tabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <a class="nav-link active" data-bs-toggle="tab" href="#home" aria-selected="true" role="tab">General Information</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <a class="nav-link" data-bs-toggle="tab" href="#profile" aria-selected="false" tabindex="-1" role="tab">Geological Events</a>
+                </li>
+              </ul>
+
+              <div id="myTabContent" class="tab-content">
+                <div class="tab-pane fade show active" id="home" role="tabpanel">
+                <p>Nullam convallis consequat augue, eu pellentesque elit semper vel. Fusce eget augue ut risus tempor volutpat.
+                    Curabitur pellentesque tortor tellus, sit amet egestas mi laoreet sed. Cras viverra dolor nunc, in aliquet quam
+                    commodo non. Sed feugiat faucibus justo, condimentum convallis odio efficitur id. Donec dolor enim, dapibus eget
+                    lectus et, tincidunt molestie lacus. In ex ex, dapibus eu lorem eu, vestibulum varius dui. Nam sagittis, erat at
+                    feugiat vestibulum, purus est dignissim lacus, non rutrum velit arcu nec quam. Donec tincidunt lectus ut ultrices
+                    faucibus. Suspendisse at lacinia urna. Pellentesque id fermentum dui.</p>
+                
+                <p>
+                    Vivamus in odio quis risus ultricies commodo tempus euismod lacus. Fusce in blandit erat. Vivamus cursus nisi non
+                    nunc iaculis, sed accumsan risus sagittis. Suspendisse ac magna justo. Maecenas ultrices ullamcorper maximus. Fusce
+                    auctor enim vel eros mollis lacinia. Duis quis elit sit amet velit pellentesque auctor. Nam dolor lorem, vestibulum
+                    et posuere vel, aliquet id dui. Mauris non rutrum lectus, fermentum luctus metus. Integer porta tellus in diam
+                    finibus molestie. Pellentesque viverra tortor nec iaculis pulvinar. Ut nulla turpis, volutpat luctus fringilla in,
+                    ultrices vitae ante. Praesent pretium erat et elit faucibus, nec consectetur lorem porttitor.
+                </p>
+
+                </div>
+                <div class="tab-pane fade" id="profile" role="tabpanel">
+                    <p>Nullam convallis consequat augue, eu pellentesque elit semper vel. Fusce eget augue ut risus tempor volutpat.
+                        Curabitur pellentesque tortor tellus, sit amet egestas mi laoreet sed. Cras viverra dolor nunc, in aliquet quam
+                        commodo non. Sed feugiat faucibus justo, condimentum convallis odio efficitur id. Donec dolor enim, dapibus eget
+                        lectus et, tincidunt molestie lacus. In ex ex, dapibus eu lorem eu, vestibulum varius dui. Nam sagittis, erat at
+                        feugiat vestibulum, purus est dignissim lacus, non rutrum velit arcu nec quam. Donec tincidunt lectus ut ultrices
+                        faucibus. Suspendisse at lacinia urna. Pellentesque id fermentum dui.</p>
+                    
+                    <p>
+                        Vivamus in odio quis risus ultricies commodo tempus euismod lacus. Fusce in blandit erat. Vivamus cursus nisi non
+                        nunc iaculis, sed accumsan risus sagittis. Suspendisse ac magna justo. Maecenas ultrices ullamcorper maximus. Fusce
+                        auctor enim vel eros mollis lacinia. Duis quis elit sit amet velit pellentesque auctor. Nam dolor lorem, vestibulum
+                        et posuere vel, aliquet id dui. Mauris non rutrum lectus, fermentum luctus metus. Integer porta tellus in diam
+                        finibus molestie. Pellentesque viverra tortor nec iaculis pulvinar. Ut nulla turpis, volutpat luctus fringilla in,
+                        ultrices vitae ante. Praesent pretium erat et elit faucibus, nec consectetur lorem porttitor.
+                    </p>
+                    
+                </div>
+              </div>
             
         </div><!-- end of center column -->
-
-        <div class="col-4" id="right_column">
-            <!-- start of right column -->
-            
-            <ul class="nav nav-pills">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
-                        aria-haspopup="true" aria-expanded="false">Shield Volcanoes</a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Shield Volcano 1</a>
-                        <a class="dropdown-item" href="#">Shield Volcano 2</a>
-                        <a class="dropdown-item" href="#">Shield Volcano 3</a>
-                    </div>
-                </li>
-            </ul>
-            
-            <p>
-                Chosen Shield Volcano
-            </p>
-
-            <div id="map_3"></div>
-
-        </div><!-- end of right column -->
-
-
     </div><!-- end of main outer column -->
 </body>
 

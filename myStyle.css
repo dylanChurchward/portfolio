@@ -101,49 +101,40 @@ h2 {
 
 /* *************** STYLE FOR GEO PROJECT ************************  */
 
-#left_column {
-    display: inline-block;
-    border: solid 1px rgb(28, 28, 28);
-    height: 100%;
-    width: 33.333%;
-}
+
 
 #center_column {
-    display: inline-block;
-    border: solid 1px rgb(28, 28, 28);
-    height: 100%;
-    width: 33.333%;
-}
-
-#right_column {
-    display: inline-block;
-    border: solid 1px rgb(28, 28, 28);
-    height: 100%;
-    width: 33.333%;
-}
-
-.nav {
-    padding: 2%;
-}
-
-
-#map {
-    margin: 10%;
-    width: 80%;
-    height: 50vh;
+    background-color: rgba(255, 255, 255, 0.973);
 }
 
 #map_2 {
-    margin: 10%;
-    width: 80%;
-    height: 50vh;
+    margin: 20%;
+    margin-top: 3%;
+    margin-bottom: 1%;
+    width: 60%;
+    height: 60vh;
 }
 
-#map_3 {
-    margin: 10%;
-    width: 80%;
-    height: 50vh;
+#volcano_name {
+    margin: 0;
+    padding: 0;
+    padding-top: 3%;
+    padding-bottom: 0;
 }
+
+.btn-group {
+    margin-left: 0.5%;
+    margin-bottom: .5%;
+    margin-top: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+#geo-body {
+    background-color: rgb(216, 241, 232);
+}
+
+
 
 
 
