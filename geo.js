@@ -118,7 +118,7 @@ $("#1").on("click", function() {
 })
 
 $("#2").on("click", function() {
-    selectButton(0);
+    selectButton(2);
 })
 
 $("#3").on("click", function() {
