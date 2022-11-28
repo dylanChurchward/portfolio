@@ -1,10 +1,10 @@
 
 
-var map_2 = L.map('map_2').setView([46.1914, -122.1956], 13);
-L.tileLayer('https://api.maptiler.com/maps/outdoor-v2/{z}/{x}/{y}.png?key=fmh8Jdc7o7BTaDnW6sh0', {
+var map_2 = L.map('map_2').setView([46.1970, -122.19], 13);
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 30,
-    tileSize: 512,
-    zoomOffset: -1
+    // tileSize: 512,
+    // zoomOffset: -1
 }).addTo(map_2);
 
 var layerGroup = L.layerGroup().addTo(map_2);
