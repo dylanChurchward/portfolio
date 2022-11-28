@@ -99,40 +99,10 @@ h2 {
 
 
 
-/* *************** STYLE FOR GEO PROJECT ************************  */
 
 
 
-#center_column {
-    background-color: rgba(255, 255, 255, 0.973);
-}
 
-#map_2 {
-    margin: 20%;
-    margin-top: 3%;
-    margin-bottom: 1%;
-    width: 60%;
-    height: 60vh;
-}
-
-#volcano_name {
-    margin: 0;
-    padding: 0;
-    padding-top: 3%;
-    padding-bottom: 0;
-}
-
-.btn-group {
-    margin-left: 0.5%;
-    margin-bottom: .5%;
-    margin-top: 0;
-    padding-top: 0;
-    padding-bottom: 0;
-}
-
-#geo-body {
-    background-color: rgb(216, 241, 232);
-}
 
 
 
