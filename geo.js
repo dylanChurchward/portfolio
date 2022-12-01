@@ -10,19 +10,27 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 var layerGroup = L.layerGroup().addTo(map_2);
 
 // define all available volcanoes 
-const helens = {name: "Mount Saint Helens", lat: "46.1914", lon: "-122.1956", start:"1980-05-05", end:"1980-05-19", quakesByDate: ""};
+const helens = {name: "Mount Saint Helens", id: "helens", lat: "46.1914", lon: "-122.1956", start:"1980-05-03", end:"1980-05-19", quakesByDate: ""};
+const kilauea = {name: "Kilauea", id: "kilauea", lat: "19.4069", lon: "-155.2834", start:"2021-09-12", end:"2021-9-30", quakesByDate: ""};
+const mauna = {name: "Mauna Loa", id: "mauna", lat: "19.4721", lon: "-155.5922", start:"2022-11-13", end:"2022-11-30", quakesByDate: ""};
+
 
 // volcano currently being displayed. starts with st. helens, can by changed by the user dynamically 
-var currentVolcano = helens;
+var volcano = helens;
 
 // the day currently being displayed 
-var selectedDay;
+var day;
+
+var lat = volcano.lat;
+var lon = volcano.lon;
 
 // array of all volcanoes
 const volcanoes = [];
 volcanoes.push(helens);
+volcanoes.push(kilauea);
+volcanoes.push(mauna);
 
-$("#volcano_name").html(currentVolcano.name);
+$("#volcano_name").html(volcano.name);
 
 
 // Collect seismic activity information from the earthquake API 
@@ -33,14 +41,21 @@ async function queryForQuakes(theVolcano) {
         method: 'GET'
     });
 
-    // save earthquake data to theVolcano object 
+    // collect earthquake features 
     var quakes = await response.json();
     quakes = quakes.features; 
 
+    // map for earthquake features to be collected in, arranged by date 
     var quakesByDate = new Map();
     var volcanoDataGathered = 0;
     const volcanoCount = 1;
 
+    // populate map with appropriate dates, so none are skipped on days without seismic activity
+    for (i = 15; i >= 0; i--) {
+        var date = theVolcano.start.split("-");
+        date = date[0] + "-" + (parseInt(date[1]) - 1) + "-" + (parseInt(date[2]) + i);
+        quakesByDate.set(date, []);
+    }
 
     // collect quake info by date, store in a map containing keys: dates, values: arrays of earthquakes 
     for (i = 0; i < quakes.length; i++) {
@@ -48,11 +63,10 @@ async function queryForQuakes(theVolcano) {
         var fullDate = new Date(time);
         var date = fullDate.getFullYear() + "-" + fullDate.getMonth() + "-" + fullDate.getDate();
 
+        // filter out seismic activity from unwanted range
         if (quakesByDate.has(date)) {
             quakesByDate.get(date).push(quakes[i]); // if quakesByDate already has an array of quakes for this date, add this quake to the array 
-        } else {
-            quakesByDate.set(date, [quakes[i]]); // if quakesByDate doesn't have an array for this date, create one including this quake 
-        }
+        } 
     }
 
     // save quakeByDate to each volcano object 
@@ -103,86 +117,85 @@ function displayQuakes(theVolcano, theDay) {
 function selectButton(theButton) {
     var jquery = "#" + theButton;
     layerGroup.clearLayers();
-    console.log(jquery)
     $(".day").css({"background-color": "gray"});
     $(jquery).css({ "background-color": "#f55702"});
-    displayQuakes(currentVolcano, theButton);
+    displayQuakes(volcano, theButton);
 }
 
 
 $("#0").on("click", function() {
     selectButton(0);
-    selectedDay = 0;
+    day = 0;
 })
 
 $("#1").on("click", function() {
     selectButton(1);
-    selectedDay = 1;
+    day = 1;
 })
 
 $("#2").on("click", function() {
     selectButton(2);
-    selectedDay = 2;
+    day = 2;
 })
 
 $("#3").on("click", function() {
     selectButton(3);
-    selectedDay = 3;
+    day = 3;
 })
 
 $("#4").on("click", function() {
     selectButton(4);
-    selectedDay = 4;
+    day = 4;
 })
 
 $("#5").on("click", function() {
     selectButton(5);
-    selectedDay = 5;
+    day = 5;
 })
 
 $("#6").on("click", function() {
     selectButton(6);
-    selectedDay = 6;
+    day = 6;
 })
 
 $("#7").on("click", function() {
     selectButton(7);
-    selectedDay = 7;
+    day = 7;
 })
 
 $("#8").on("click", function() {
     selectButton(8);
-    selectedDay = 8;
+    day = 8;
 })
 
 $("#9").on("click", function() {
     selectButton(9);
-    selectedDay = 9;
+    day = 9;
 })
 
 $("#10").on("click", function() {
     selectButton(10);
-    selectedDay = 10;
+    day = 10;
 })
 
 $("#11").on("click", function() {
     selectButton(11);
-    selectedDay = 11;
+    day = 11;
 })
 
 $("#12").on("click", function() {
     selectButton(12);
-    selectedDay = 12;
+    day = 12;
 })
 
 $("#13").on("click", function() {
     selectButton(13);
-    selectedDay = 13;
+    day = 13;
 })
 
 $("#14").on("click", function() {
     selectButton(14);
-    selectedDay = 14;
+    day = 14;
 })
 
 $("#start").on("click", function() {
@@ -198,34 +211,67 @@ $("#start").on("click", function() {
 })
 
 $("#left").on("click", function() {
-    if (selectedDay < 14) {
-        selectButton(selectedDay + 1);
-        selectedDay++;
+    if (day < 14) {
+        selectButton(day + 1);
+        day++;
     }
 })
 
 $("#right").on("click", function() {
-    if (selectedDay > 0) {
-        selectButton(selectedDay - 1);
-        selectedDay--;
+    if (day > 0) {
+        selectButton(day - 1);
+        day--;
     }
 })
+
+$("#helens").on("click", function() {
+    setNewVolcano(helens);
+})
+
+$("#kilauea").on("click", function() {
+    setNewVolcano(kilauea);
+})
+
+$("#mauna").on("click", function() {
+    setNewVolcano(mauna);
+})
+
+$("#instructions").on("click", function() {
+    $(".active").removeClass("active");
+    $("#instructions").addClass("active");
+})
+
+$("#citations").on("click", function() {
+    $(".active").removeClass("active");
+    $("#citations").addClass("active");
+})
+
+function setNewVolcano(theVolcano) {
+    iterating = false;
+    day = null;
+    volcano = theVolcano;
+    $(".active").removeClass("active");
+    $("#" + volcano.id).addClass("active");
+    $("#volcano_name").html(volcano.name);
+    map_2.setView([volcano.lat, volcano.lon], 13);
+}
+
+
 
 var iterating = false; 
 
 async function iterateDays() {
-    if (selectedDay == null || selectedDay == 0) {
-        selectedDay = 14;
+    if (day == null || day == 0) {
+        day = 14;
         selectButton(14);
     }
 
     iterating = true;
-    while (selectedDay > 0) {
+    while (day > 0) {
         await new Promise(resolve => setTimeout(resolve, 1000));
         if (iterating == true) {
-            selectButton(selectedDay - 1);
-            selectedDay--;
-            console.log(selectedDay);
+            selectButton(day - 1);
+            day--;
         } else {
             break;
         }
