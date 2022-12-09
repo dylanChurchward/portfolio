@@ -11,10 +11,6 @@
     <link rel="stylesheet" href="https://bootswatch.com/5/united/bootstrap.min.css">
     <link rel="stylesheet" href="geoStyle.css">
 
-    <!-- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css"
-    integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14="
-    crossorigin=""/> -->
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.0-rc.1/leaflet.css" />
 
     <script src="https://code.jquery.com/jquery-3.6.0.js"
@@ -25,128 +21,176 @@
 
 <body id="geo-body">
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Choose a Volcano:</a>
-            <ul class="navbar-nav me-auto justify-content-center">
-              <li class="nav-item">
-                <a class="nav-link active" href="#" id="helens">Mount Saint Helens</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#" id="kilauea">Kilauea</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#" id="mauna">Mauna Loa</a>
-              </li>
-            </ul>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Choose a Volcano:</a>
+      <ul class="navbar-nav me-auto justify-content-center">
+        <li class="nav-item mountain">
+          <a class="nav-link mountain active" href="#" id="helens">Mount Saint Helens</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link mountain" href="#" id="kilauea">Kilauea</a>
+        </li>
+      </ul>
 
-            <ul class="navbar-nav ml-auto justify-content-center">
-              <li class="nav-item">
-                <a class="nav-link" href="#" id="instructions">Instructions</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#" id="citations">Citations</a>
-              </li>
-            </ul>
+      <ul class="navbar-nav ml-auto justify-content-center">
+        <li class="nav-item">
+          <a class="nav-link" href="#" id="instructions">Instructions</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" id="citations">Citations</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
 
+<div class="container">
+  <div class="row" id="main_page">
+    <!-- start of main outer column -->
+  
+      <div class="col" id="content_column">
+         <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item" role="presentation">
+              <a class="nav-link active" data-bs-toggle="tab" href="#history" aria-selected="true" role="tab" id="general_link">A Little History</a>
+            </li>
+            <li class="nav-item" role="presentation">
+              <a class="nav-link" data-bs-toggle="tab" href="#geological" aria-selected="false" tabindex="-1" role="tab">The Eruption</a>
+            </li>
+          </ul>
+
+          <div class="row">
+            <div class="col text-center">
+              <h3 id="volcano_name">Mount Saint Helens</h3>
+            </div>
           </div>
-        </div>
-      </nav>
 
+          <div id="myTabContent" class="tab-content">
+            <!-- Start of content panes -->
+            <div class="tab-pane fade show active" id="history" role="tabpanel">
+              <!-- <p>
+                In Washington state 50 miles northeast of Vancouver and 33 miles west of Mount Adams rests the volcano most likely
+                to erupt in the
+                contiguous United States: Mount Saint Helens. Like other mountains in the cascades, Mount Saint Helens formed as a
+                result of
+                the volcanism produced by the Juan de Fuca plate subducting under the North American plate off of the Pacific
+                Coast. While it is
+                famous for its 1980 eruption, Mount Saint Helens has had many volcanically active periods throughout its 275,000
+                year
+                existence.
+                (https://www.usgs.gov/volcanoes/mount-st.-helens/geology-and-history-summary-mount-st-helens)
+          
+              </p>
+              <p>
+                As a matter of fact, it reached its peak height of 9,677 feet (prior to the most recent eruption) as the result of
+                a series of lavaflows
+                which deposited great quantities of andesite and basalt around 3,000 years ago. Additionally, regular eruptions
+                which released dacite
+                lavas were intersperesed between the andesite and basalt eruptions. Prior to these recent series of deposits and
+                growth, the area consisted
+                of a collection of relatively small dacite domes, surrounded by fans of volcanic debris.
+                (https://www.usgs.gov/volcanoes/mount-st.-helens/geology-and-history-summary-mount-st-helens)
+              </p>
+              <p>
+                In addition to the relatively low energy lavaflow events that created much of the mountain that remains today,
+                Mount Saint Helens has seen
+                periods of explosive volcanic activity. For example, between 3,300 and 3,500 years ago massive amounts of tephra
+                were violently expelled from
+                the area. In fact, the eruption that set this period off was so violent and voluminous (four times larger than the
+                most recent eruption), that
+                material has been found as far as 590 miles away.
+                (https://www.usgs.gov/volcanoes/mount-st.-helens/holocene-activity-prior-may-18-1980-eruption)
+              </p> -->
+            </div>
 
-    <div class="row" id="main_outer_column">
-        <!-- start of main outer column -->
-
-        <div class="col-8 offset-2" id="center_column">
-            <!-- start of center column -->
-
-            <h1 class="text-center" id="volcano_name">Chosen Volcano Name</h1>
-
-            <div id="map_2"></div>
-
-            <div class="container"> <!-- day selection bar start -->
-                <div class="col-md-12 text-center">
-
-                    <div class="btn-group" role="group" aria-label="Toolbar with button groups">
-                        <div class="btn-group me-2" role="group" aria-label="First group">
-                          <button type="button" class="btn btn-secondary day" id="14">14</button>
-                          <button type="button" class="btn btn-secondary day" id="13">13</button>
-                          <button type="button" class="btn btn-secondary day" id="12">12</button>
-                          <button type="button" class="btn btn-secondary day" id="11">11</button>
-                          <button type="button" class="btn btn-secondary day" id="10">10</button>
-                          <button type="button" class="btn btn-secondary day" id="9">9</button>
-                          <button type="button" class="btn btn-secondary day" id="8">8</button>
-                          <button type="button" class="btn btn-secondary day" id="7">7</button>
-                          <button type="button" class="btn btn-secondary day" id="6">6</button>
-                          <button type="button" class="btn btn-secondary day" id="5">5</button>
-                          <button type="button" class="btn btn-secondary day" id="4">4</button>
-                          <button type="button" class="btn btn-secondary day" id="3">3</button>
-                          <button type="button" class="btn btn-secondary day" id="2">2</button>
-                          <button type="button" class="btn btn-secondary day" id="1">1</button>
-                          <button type="button" class="btn btn-secondary day" id="0">Eruption</button>
-                        </div>
-                    </div>
-                </div>
-            </div> <!-- day selection bar end-->
-
-            <div class="container"> <!-- day clicker bar start -->
-                <div class="col-md-12 text-center">
-
-                    <div class="btn-group" role="group" aria-label="Basic example">
-                        <button type="button" class="btn btn-secondary text-center" id="left"><b><</b></button>
-                        <button type="button" class="btn btn-secondary text-center" id="start">Start</button>
-                        <button type="button" class="btn btn-secondary text-center" id="right"><b>></b></button>
-                    </div>
-                </div>
-            </div> <!-- day clicker bar end -->
-
-            <ul class="nav nav-tabs" role="tablist">
-                <li class="nav-item" role="presentation">
-                  <a class="nav-link active" data-bs-toggle="tab" href="#home" aria-selected="true" role="tab">General Information</a>
-                </li>
-                <li class="nav-item" role="presentation">
-                  <a class="nav-link" data-bs-toggle="tab" href="#profile" aria-selected="false" tabindex="-1" role="tab">Geological Events</a>
-                </li>
-              </ul>
-
-              <div id="myTabContent" class="tab-content">
-                <div class="tab-pane fade show active" id="home" role="tabpanel">
-                <p>Nullam convallis consequat augue, eu pellentesque elit semper vel. Fusce eget augue ut risus tempor volutpat.
-                    Curabitur pellentesque tortor tellus, sit amet egestas mi laoreet sed. Cras viverra dolor nunc, in aliquet quam
-                    commodo non. Sed feugiat faucibus justo, condimentum convallis odio efficitur id. Donec dolor enim, dapibus eget
-                    lectus et, tincidunt molestie lacus. In ex ex, dapibus eu lorem eu, vestibulum varius dui. Nam sagittis, erat at
-                    feugiat vestibulum, purus est dignissim lacus, non rutrum velit arcu nec quam. Donec tincidunt lectus ut ultrices
-                    faucibus. Suspendisse at lacinia urna. Pellentesque id fermentum dui.</p>
+            <div class="tab-pane fade" id="geological" role="tabpanel">
+              <!-- <p>
+                On May 18th of 1980, a 5.1 magnitude earthquake one mile beneath Mount Saint Helens triggered the largest slope failure in recorded history. 
+                3.3 billion cubic yards of debris were released from the northern flank of Mount Saint Helens and traveled at 70 to 150 miles per hour, 
+                burying North Fork Toutle River to an average depth of 150 feet. Starting about a month prior to the slide the first sign of volcanic or
+                seismic activity manifested as a sequence of relatively small earthquakes. 
+                
+                </p>
+                <p>
+                Over the next couple of weeks, these small earthquakes steadyily 
+                continued and on March 27th culminated with the first volcanic eruption in over 100 years in the form of steam explosions. These explosions 
+                blasted a 75 meter wide crater into the mountain's summit ice cap. The crater continued to grow and eventually stretched 400 meters wide. 
+                The steam blasts continued but tapered off through April, eventually stopping altogether on April 22nd. A bulge on the northen surface 
+                of the mountain was growing, indicating that a cryptodome was most likely beneath the surface of the mountain was inflating with magma. 
+                </p>
                 
                 <p>
-                    Vivamus in odio quis risus ultricies commodo tempus euismod lacus. Fusce in blandit erat. Vivamus cursus nisi non
-                    nunc iaculis, sed accumsan risus sagittis. Suspendisse ac magna justo. Maecenas ultrices ullamcorper maximus. Fusce
-                    auctor enim vel eros mollis lacinia. Duis quis elit sit amet velit pellentesque auctor. Nam dolor lorem, vestibulum
-                    et posuere vel, aliquet id dui. Mauris non rutrum lectus, fermentum luctus metus. Integer porta tellus in diam
-                    finibus molestie. Pellentesque viverra tortor nec iaculis pulvinar. Ut nulla turpis, volutpat luctus fringilla in,
-                    ultrices vitae ante. Praesent pretium erat et elit faucibus, nec consectetur lorem porttitor.
+                Other than continued relatively small earthquakes, the mountain was quiet until May 7th when small steam and ash eruptions resumed. This brings
+                us within the fourteen day window prior to the major eruption that is featured on the map. By this time, 10,000 small earthquakes had shaken 
+                the mountain and the deformation on the northern surface and swelled 450 feet, creating a remarkable bulge. This type of deformation (although
+                not always on this scale) along with a series of small to medium earthquakes are typical events leading to an explosive eruption of a composite 
+                volcano. The small steam and ash eruptions, accompanied by medium sized earthquakes centralized around the northern flank of the mountain 
+                continued until May 17th. 
                 </p>
 
-                </div>
-                <div class="tab-pane fade" id="profile" role="tabpanel">
-                    <p>Nullam convallis consequat augue, eu pellentesque elit semper vel. Fusce eget augue ut risus tempor volutpat.
-                        Curabitur pellentesque tortor tellus, sit amet egestas mi laoreet sed. Cras viverra dolor nunc, in aliquet quam
-                        commodo non. Sed feugiat faucibus justo, condimentum convallis odio efficitur id. Donec dolor enim, dapibus eget
-                        lectus et, tincidunt molestie lacus. In ex ex, dapibus eu lorem eu, vestibulum varius dui. Nam sagittis, erat at
-                        feugiat vestibulum, purus est dignissim lacus, non rutrum velit arcu nec quam. Donec tincidunt lectus ut ultrices
-                        faucibus. Suspendisse at lacinia urna. Pellentesque id fermentum dui.</p>
-                    
-                    <p>
-                        Vivamus in odio quis risus ultricies commodo tempus euismod lacus. Fusce in blandit erat. Vivamus cursus nisi non
-                        nunc iaculis, sed accumsan risus sagittis. Suspendisse ac magna justo. Maecenas ultrices ullamcorper maximus. Fusce
-                        auctor enim vel eros mollis lacinia. Duis quis elit sit amet velit pellentesque auctor. Nam dolor lorem, vestibulum
-                        et posuere vel, aliquet id dui. Mauris non rutrum lectus, fermentum luctus metus. Integer porta tellus in diam
-                        finibus molestie. Pellentesque viverra tortor nec iaculis pulvinar. Ut nulla turpis, volutpat luctus fringilla in,
-                        ultrices vitae ante. Praesent pretium erat et elit faucibus, nec consectetur lorem porttitor.
-                    </p>
-                    
-                </div>
-              </div>
+                <p>
+                  In the early morning hours of May 18th, our 5.1 magnitude earthquake triggered the largest slope failure in recorded history. The bulge that
+                  had been growing on the northern flank of the mountain slid away, which triggered a series of catastrophic events. The cryptodome which had 
+                  been inflating with magma and increasing in pressure suddenly found itself depressurized. This nearly instant depressurization resulted in 
+                  a lateral blast, through the sliding debris. Hot debris from the blast accelerated to 300 miles per hour and blew past the sliding debris from 
+                  the slope failure. The blast flattened trees, destroyed, and buried the landscape in the areas surrounding the northern flank. Within a few hours, 
+                  the depressurization of the magma system sent pyroclastic flows down the mountain at 80 miles per hour and a massive pillar of ash and tephra 
+                  into the sky. https://www.usgs.gov/volcanoes/mount-st.-helens/1980-cataclysmic-eruption
+                </p> -->
+
+             
+            
+              <p>
+              </p>
+            </div> <!-- End of p-->
+          </div> <!-- End of tab content -->
+        </div> <!-- End of content column -->
+      
+      <div class="col" id="map_column"> <!-- Column containing map and button rows -->
+  
+        <div class="row" id="map_row">
+          <div id="map_2"></div>
+        </div>
+  
+        <div class="row-1 text-center">
+          <!-- Select day buttons -->
+          <div class="btn-group" role="group" aria-label="Toolbar with button groups">
+            <div class="btn-group me-2" role="group" aria-label="First group">
+              <button type="button" class="btn btn-secondary day" id="14">14</button>
+              <button type="button" class="btn btn-secondary day" id="13">13</button>
+              <button type="button" class="btn btn-secondary day" id="12">12</button>
+              <button type="button" class="btn btn-secondary day" id="11">11</button>
+              <button type="button" class="btn btn-secondary day" id="10">10</button>
+              <button type="button" class="btn btn-secondary day" id="9">9</button>
+              <button type="button" class="btn btn-secondary day" id="8">8</button>
+              <button type="button" class="btn btn-secondary day" id="7">7</button>
+              <button type="button" class="btn btn-secondary day" id="6">6</button>
+              <button type="button" class="btn btn-secondary day" id="5">5</button>
+              <button type="button" class="btn btn-secondary day" id="4">4</button>
+              <button type="button" class="btn btn-secondary day" id="3">3</button>
+              <button type="button" class="btn btn-secondary day" id="2">2</button>
+              <button type="button" class="btn btn-secondary day" id="1">1</button>
+              <button type="button" class="btn btn-secondary day" id="0">Eruption</button>
+            </div>
+          </div>
+        </div> <!-- End of select day buttons -->
+  
+        <div class="row-1 text-center">
+          <div class="btn-group" role="group" aria-label="Basic example">
+            <button type="button" class="btn btn-secondary text-center" id="left"><b><</b></button>
+            <button type="button" class="btn btn-secondary text-center" id="start">Start</button>
+            <button type="button" class="btn btn-secondary text-center" id="right"><b>></b></button>
+          </div>
+        </div>
+  
+      </div> <!-- End of column containing map and button rows -->
+
+    </div>
+  </div>
+           
+
+
+
+              
             
         </div><!-- end of center column -->
     </div><!-- end of main outer column -->
@@ -156,11 +200,8 @@
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
 
-    <!-- <script src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js"
-     integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg="
-     crossorigin=""></script> -->
-
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.0-rc.1/leaflet.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.0-rc.1/leaflet.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="geo.js"></script>
 
 
