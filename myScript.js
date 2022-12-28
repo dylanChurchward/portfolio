@@ -23,6 +23,7 @@ $(function () {
             $(".navbar").css({ "padding-top": "", "padding-bottom": "" });
             $("h1").css({ "margin-top": "" })
             $(".liveButton").css({ "display": "" });
+            // $("#geo_img").css({"width": "20%"});
         }
     }
 
